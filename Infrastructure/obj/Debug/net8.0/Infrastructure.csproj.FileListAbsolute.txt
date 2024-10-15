@@ -1,0 +1,17 @@
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.AssemblyInfo.cs
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Proyectos\Employee.API\Infrastructure\bin\Debug\net8.0\Infrastructure.deps.json
+C:\Proyectos\Employee.API\Infrastructure\bin\Debug\net8.0\Infrastructure.dll
+C:\Proyectos\Employee.API\Infrastructure\bin\Debug\net8.0\Infrastructure.pdb
+C:\Proyectos\Employee.API\Infrastructure\bin\Debug\net8.0\Domain.dll
+C:\Proyectos\Employee.API\Infrastructure\bin\Debug\net8.0\Domain.pdb
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.CopyComplete
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.dll
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\refint\Infrastructure.dll
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Proyectos\Employee.API\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
