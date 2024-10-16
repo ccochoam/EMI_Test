@@ -20,7 +20,12 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    });
 
 // Configuración de Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -64,9 +69,13 @@ builder.Services.AddScoped<IRequestHandler<GetPositionHistoryRequest, PositionHi
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
-builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<AuthService>();  
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<ProjectService>();  
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<DepartmentService>(); 
 builder.Services.AddAutoMapper(typeof(Program));
-builder.Services.AddAutoMapper(amc => amc.AddProfile<UserProfile>());
+builder.Services.AddAutoMapper(amc => amc.AddProfile<AutoMapping>());
 
 // Configuración de la base de datos
 builder.Services.AddDbContext<EmployeeDbContext>(options =>

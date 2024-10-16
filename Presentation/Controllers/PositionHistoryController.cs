@@ -49,7 +49,7 @@ namespace Presentation.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var positionHistory = await _positionHistoryService.CreatePositionHistoryAsync(positionHistoryDto.EmployeeId, positionHistoryDto.Position, positionHistoryDto.StartDate, positionHistoryDto.EndDate);
+            var positionHistory = await _positionHistoryService.CreatePositionHistoryAsync(positionHistoryDto.EmployeeId, positionHistoryDto.Position, positionHistoryDto.StartDate, positionHistoryDto.EndDate, positionHistoryDto.EmployeeType, positionHistoryDto.DepartmentId);
 
             return Ok(positionHistory);
         }
@@ -63,7 +63,7 @@ namespace Presentation.Controllers
                 return BadRequest(ModelState);
             }
 
-            var updatedEmployee = await _positionHistoryService.UpdateEmployeeAsync(id, positionHistoryDto.EmployeeId, positionHistoryDto.Position, positionHistoryDto.StartDate, positionHistoryDto.EndDate);
+            var updatedEmployee = await _positionHistoryService.UpdateEmployeeAsync(id, positionHistoryDto.EmployeeId, positionHistoryDto.Position, positionHistoryDto.StartDate, positionHistoryDto.EndDate, positionHistoryDto.EmployeeType, positionHistoryDto.DepartmentId);
             if (updatedEmployee == null)
             {
                 return NotFound();

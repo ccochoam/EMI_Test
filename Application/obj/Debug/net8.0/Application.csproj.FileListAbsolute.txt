@@ -15,3 +15,4 @@ C:\Proyectos\Employee.API\Application\obj\Debug\net8.0\Application.pdb
 C:\Proyectos\Employee.API\Application\obj\Debug\net8.0\ref\Application.dll
 C:\Proyectos\Employee.API\Application\bin\Debug\net8.0\Infrastructure.dll
 C:\Proyectos\Employee.API\Application\bin\Debug\net8.0\Infrastructure.pdb
+C:\Proyectos\Employee.API\Application\obj\Debug\net8.0\Application.sourcelink.json

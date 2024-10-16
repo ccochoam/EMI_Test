@@ -30,20 +30,20 @@ namespace Application.Services
             return await _positionHistoryRepository.GetListByEmployeeId(employeeId);
         }
 
-        public async Task<PositionHistory> CreatePositionHistoryAsync(int employeeId, string position, string startDate, string endDate)
+        public async Task<PositionHistory> CreatePositionHistoryAsync(int employeeId, string position, string startDate, string endDate, int employeeType, int? departamentId)
         {
             // Uso de Factory Pattern para crear una PositionHistory, pensado para implementar varios tipos de gerente con diferentes porcentajes para el cálculo del bono
-            var positionHistory = PositionHistoryFactory.CreatePositionHistory(0, employeeId, position, startDate, endDate);
+            var positionHistory = PositionHistoryFactory.CreatePositionHistory(0, employeeId, position, startDate, endDate, employeeType, departamentId);
 
             await _positionHistoryRepository.AddAsync(positionHistory);
 
             return positionHistory;
         }
 
-        public async Task<PositionHistory> UpdateEmployeeAsync(int id, int employeeId, string position, string startDate, string endDate)
+        public async Task<PositionHistory> UpdateEmployeeAsync(int id, int employeeId, string position, string startDate, string endDate, int employeeType, int? deparmentId)
         {
             // Uso de Factory Pattern para crear una PositionHistory, pensado para implementar varios tipos de gerente con diferentes porcentajes para el cálculo del bono
-            var positionHistory = PositionHistoryFactory.CreatePositionHistory(id, employeeId, position, startDate, endDate);
+            var positionHistory = PositionHistoryFactory.CreatePositionHistory(id, employeeId, position, startDate, endDate, employeeType, deparmentId);
 
             // Actualiza un histórico en la base de datos
             await _positionHistoryRepository.UpdateAsync(positionHistory);

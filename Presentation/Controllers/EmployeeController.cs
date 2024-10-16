@@ -4,7 +4,6 @@ using Domain.Entities;
 using Domain.Enums;
 using Domain.Mediator;
 using Infrastructure.Helpers;
-using Infrastructure.Migrations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,6 +55,24 @@ namespace Presentation.Controllers
 
         }
 
+        [HttpGet("getEmployeeWithDepartment/{deparmentId}")]
+        public async Task<IActionResult> GetEmployeeWithDepartment(int deparmentId)
+        {
+            var claims = GetUserAuth();
+            int role = int.Parse(claims.Item2);
+
+            if (role == (int)UserRole.Admin)
+            {
+                var employee = await _employeeService.GetEmployeesInDepartmentWithProjectsAsync(deparmentId);
+                if (employee == null)
+                    return NotFound();
+
+                return Ok(employee);
+            }
+            else
+                return Unauthorized();
+        }
+
         // POST: api/employee
         [HttpPost]
         public async Task<IActionResult> CreateEmployee([FromBody] EmployeeDto employeeDto)
@@ -68,7 +85,7 @@ namespace Presentation.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                var employee = await _employeeService.CreateEmployeeAsync(employeeDto.Name, employeeDto.CurrentPosition, employeeDto.Salary);
+                var employee = await _employeeService.CreateEmployeeAsync(employeeDto.Name, employeeDto.CurrentPosition, employeeDto.Salary, employeeDto.departmentId);
                 return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.Id }, employee);
             }
             else

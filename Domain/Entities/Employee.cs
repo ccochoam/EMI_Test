@@ -14,6 +14,9 @@ namespace Domain.Entities
         [Column(TypeName = "decimal(18,4)")] 
         public decimal Salary { get; set; }
         public List<PositionHistory> PositionHistories { get; set; }
+        public int? DepartmentId { get; set; }
+        public Department Department { get; set; }
+        public ICollection<Project> Projects { get; set; } // Relación con proyectos
 
         [JsonIgnore] 
         public IBonusStrategy BonusStrategy { get; set; } // Se crea para asignar a través del Stragety Pattern, la lógica para el cálculo del bono según la posición actual del empleado. La asignación se hace en la función AssignBonusStrategy

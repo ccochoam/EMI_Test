@@ -11,5 +11,8 @@ namespace Domain.Entities
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public int EmployeeType { get; set; }
+        public int? DepartmentId { get; set; }
+
+        public Department Department { get; set; }
     }
 }

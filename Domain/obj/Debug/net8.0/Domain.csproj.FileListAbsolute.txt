@@ -9,3 +9,4 @@ C:\Proyectos\Employee.API\Domain\obj\Debug\net8.0\Domain.dll
 C:\Proyectos\Employee.API\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Proyectos\Employee.API\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Proyectos\Employee.API\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Proyectos\Employee.API\Domain\obj\Debug\net8.0\Domain.sourcelink.json

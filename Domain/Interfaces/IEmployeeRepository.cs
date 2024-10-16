@@ -7,6 +7,6 @@ namespace Domain.Interfaces
     /// </summary>
     public interface IEmployeeRepository : IRepository<Employee>
     {
-
+        Task<IEnumerable<Employee>> GetEmployeesInDepartmentWithProjectsAsync(int departmentId);
     }
 }

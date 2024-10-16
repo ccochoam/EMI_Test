@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Domain.Enums;
-using Domain.Strategies;
 
 namespace Domain.Factories
 {
@@ -9,7 +8,7 @@ namespace Domain.Factories
     /// </summary>
     public class EmployeeFactory
     {
-        public static Employee CreateEmployee(int id, string name, int positionId, decimal salary, int employeeType = 0)
+        public static Employee CreateEmployee(int id, string name, int positionId, decimal salary, int? departmentId, int employeeType = 0)
         {
             // Lógica basada en el cargo del empleado
             if (employeeType == (int)EmployeeType.ManagerEmployee)  // ID de Gerente
@@ -19,7 +18,8 @@ namespace Domain.Factories
                     Id = id,
                     Name = name,
                     Salary = salary,
-                    CurrentPosition = positionId
+                    CurrentPosition = positionId,
+                    DepartmentId = departmentId
                 };
             }
             else if (employeeType == (int)EmployeeType.RegularEmployee)  // ID de Empleado regular
@@ -29,16 +29,19 @@ namespace Domain.Factories
                     Id = id,
                     Name = name,
                     Salary = salary,
-                    CurrentPosition = positionId
+                    CurrentPosition = positionId,
+                    DepartmentId = departmentId
                 };
             }
             else  // Para cualquier otro caso, devuelve un empleado por defecto
             {
                 return new Employee
                 {
+                    Id = id == 0 ? 0 : id,
                     Name = name,
                     Salary = salary,
-                    CurrentPosition = null  // O puedes dejar esta propiedad sin asignar
+                    CurrentPosition = positionId == 0 ? null : positionId, // O puedes dejar esta propiedad sin asignar
+                    DepartmentId = departmentId
                 };
             }
         }

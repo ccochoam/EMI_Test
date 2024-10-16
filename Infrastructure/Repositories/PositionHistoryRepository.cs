@@ -43,6 +43,8 @@ namespace Infrastructure.Repositories
                 existingPositionHistory.Position = positionHistory.Position;
                 existingPositionHistory.StartDate = positionHistory.StartDate;
                 existingPositionHistory.EndDate = positionHistory.EndDate;
+                existingPositionHistory.EmployeeType = positionHistory.EmployeeType;
+                existingPositionHistory.DepartmentId = positionHistory.DepartmentId;
 
                 await _context.SaveChangesAsync();
             }

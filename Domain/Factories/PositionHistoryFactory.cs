@@ -7,7 +7,7 @@ namespace Domain.Factories
     /// </summary>
     public class PositionHistoryFactory
     {
-        public static PositionHistory CreatePositionHistory(int id, int employeeId, string position, string startDate, string endDate) 
+        public static PositionHistory CreatePositionHistory(int id, int employeeId, string position, string startDate, string endDate, int employeeType, int? departmentId) 
         {
             return new PositionHistory
             {
@@ -15,7 +15,9 @@ namespace Domain.Factories
                 EmployeeId = employeeId,
                 Position = position,
                 StartDate = DateTime.ParseExact(startDate, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture),
-                EndDate = string.IsNullOrWhiteSpace(endDate) ? null : DateTime.ParseExact(endDate, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture)
+                EndDate = string.IsNullOrWhiteSpace(endDate) ? null : DateTime.ParseExact(endDate, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture),
+                EmployeeType = employeeType,
+                DepartmentId = departmentId
             };
         }
     }

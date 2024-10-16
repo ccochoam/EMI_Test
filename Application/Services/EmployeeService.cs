@@ -50,6 +50,12 @@ namespace Application.Services
             return employee;
         }
 
+        public async Task<IEnumerable<Employee>> GetEmployeesInDepartmentWithProjectsAsync(int departmentId)
+        {
+            var employee = await _employeeRepository.GetEmployeesInDepartmentWithProjectsAsync(departmentId);
+            return employee;
+        }
+
         /// <summary>
         /// Crea un empleado nuevo
         /// </summary>
@@ -57,10 +63,10 @@ namespace Application.Services
         /// <param name="currentPosition"></param>
         /// <param name="salary"></param>
         /// <returns></returns>
-        public async Task<Employee> CreateEmployeeAsync(string name, int currentPosition, decimal salary)
+        public async Task<Employee> CreateEmployeeAsync(string name, int currentPosition, decimal salary, int? departmentId)
         {
             // Uso de Factory Pattern para crear un empleado según su posición en la empresa
-            Employee employee = EmployeeFactory.CreateEmployee(0, name, currentPosition, salary);
+            Employee employee = EmployeeFactory.CreateEmployee(0, name, currentPosition, salary, departmentId);
 
             //Luego de creado el objeto, se asigna una estrategia de cálculo del bonus según el porcentaje que corresponde a su cargo
             employee.AssignBonusStrategy();
@@ -74,7 +80,7 @@ namespace Application.Services
         public async Task<Employee> UpdateEmployeeAsync(int id, EmployeeDto employeeDto)
         {
             // Uso de Factory Pattern para crear un empleado según su posición en la empresa
-            Employee employee = EmployeeFactory.CreateEmployee(id, employeeDto.Name, employeeDto.CurrentPosition, employeeDto.Salary);
+            Employee employee = EmployeeFactory.CreateEmployee(id, employeeDto.Name, employeeDto.CurrentPosition, employeeDto.Salary, employeeDto.departmentId);
 
             // Actualiza el empleado en la base de datos
             await _employeeRepository.UpdateAsync(employee);
@@ -85,7 +91,7 @@ namespace Application.Services
             return employee;
         }
 
-        // Delete an employee
+        // Borra el empleado del Id
         public async Task<bool> DeleteEmployeeAsync(int id)
         {
             var employee = await _employeeRepository.GetByIdAsync(id);

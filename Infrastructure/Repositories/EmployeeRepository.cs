@@ -27,6 +27,14 @@ namespace Infrastructure.Repositories
             return await _context.Employees.Include(e => e.PositionHistories).ToListAsync();
         }
 
+        public async Task<IEnumerable<Employee>> GetEmployeesInDepartmentWithProjectsAsync(int departmentId)
+        {
+            return await _context.Employees
+    .Where(e => e.DepartmentId == departmentId && e.Projects.Any()).Include(e => e.Department)
+    .Include(e => e.Projects)
+    .ToListAsync();
+        }
+
         public async Task AddAsync(Employee employee)
         {
             await _context.Employees.AddAsync(employee);

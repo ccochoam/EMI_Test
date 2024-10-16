@@ -15,3 +15,4 @@ C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
 C:\Proyectos\Employee.API\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
 C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
+C:\Proyectos\Employee.API\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json
